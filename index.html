@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_0f252fb7c5955499cf1efaa78eff0e5c {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_0f252fb7c5955499cf1efaa78eff0e5c" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_0f252fb7c5955499cf1efaa78eff0e5c = L.map(
+                "map_0f252fb7c5955499cf1efaa78eff0e5c",
+                {
+                    center: [52.4862, -1.8904],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 7,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_b564bf7cf661de69009af27a001989e1 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_0f252fb7c5955499cf1efaa78eff0e5c);
+        
+    
+            var marker_d9fd6a7c38bee492d8c98a922b9d11f3 = L.marker(
+                [51.445, -0.408],
+                {}
+            ).addTo(map_0f252fb7c5955499cf1efaa78eff0e5c);
+        
+    
+            var icon_6618d968353a29c057edbefb2e54c76a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_d9fd6a7c38bee492d8c98a922b9d11f3.setIcon(icon_6618d968353a29c057edbefb2e54c76a);
+        
+    
+        var popup_e343854fbcd4a4570e66c675ec950c91 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_9b1773073b3cc38be0e6a52b23680c95 = $(`<div id="html_9b1773073b3cc38be0e6a52b23680c95" style="width: 100.0%; height: 100.0%;">Thursday - Stop 1: Moon on the Square</div>`)[0];
+            popup_e343854fbcd4a4570e66c675ec950c91.setContent(html_9b1773073b3cc38be0e6a52b23680c95);
+        
+
+        marker_d9fd6a7c38bee492d8c98a922b9d11f3.bindPopup(popup_e343854fbcd4a4570e66c675ec950c91)
+        ;
+
+        
+    
+    
+            var marker_d30bc3fd1e69840ca0fb139ab44bede9 = L.marker(
+                [51.59, -0.253],
+                {}
+            ).addTo(map_0f252fb7c5955499cf1efaa78eff0e5c);
+        
+    
+            var icon_5439f5e0346a023be8e902daf9a82caa = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_d30bc3fd1e69840ca0fb139ab44bede9.setIcon(icon_5439f5e0346a023be8e902daf9a82caa);
+        
+    
+        var popup_167d4efaa6ee229acf17b8dd28c92403 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_0f4d7518468ee190f49fc322c8464394 = $(`<div id="html_0f4d7518468ee190f49fc322c8464394" style="width: 100.0%; height: 100.0%;">Thursday - Stop 2: JJ Moons</div>`)[0];
+            popup_167d4efaa6ee229acf17b8dd28c92403.setContent(html_0f4d7518468ee190f49fc322c8464394);
+        
+
+        marker_d30bc3fd1e69840ca0fb139ab44bede9.bindPopup(popup_167d4efaa6ee229acf17b8dd28c92403)
+        ;
+
+        
+    
+    
+            var marker_dc4f52a7e9a1b849cdecfbabf91ad389 = L.marker(
+                [51.646, -0.146],
+                {}
+            ).addTo(map_0f252fb7c5955499cf1efaa78eff0e5c);
+        
+    
+            var icon_941053c4c050d679d625de286a3e8ea7 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_dc4f52a7e9a1b849cdecfbabf91ad389.setIcon(icon_941053c4c050d679d625de286a3e8ea7);
+        
+    
+        var popup_d1958f8ee88fa9cdc24c8902777ad400 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_fab95de12f8acfb2c4a302682676868e = $(`<div id="html_fab95de12f8acfb2c4a302682676868e" style="width: 100.0%; height: 100.0%;">Thursday - Stop 3: Railway Bell</div>`)[0];
+            popup_d1958f8ee88fa9cdc24c8902777ad400.setContent(html_fab95de12f8acfb2c4a302682676868e);
+        
+
+        marker_dc4f52a7e9a1b849cdecfbabf91ad389.bindPopup(popup_d1958f8ee88fa9cdc24c8902777ad400)
+        ;
+
+        
+    
+    
+            var marker_81f4fc32e69e980b00c4cab8239ec365 = L.marker(
+                [51.646, -0.146],
+                {}
+            ).addTo(map_0f252fb7c5955499cf1efaa78eff0e5c);
+        
+    
+            var icon_23e0534b9006e167a5ff89385e22e031 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "bed", "iconColor": "white", "markerColor": "purple", "prefix": "glyphicon"}
+            );
+            marker_81f4fc32e69e980b00c4cab8239ec365.setIcon(icon_23e0534b9006e167a5ff89385e22e031);
+        
+    
+        var popup_e9d9226c6b71ea7341934b30f1f55be0 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_d0e7fcef8a958325a3fe48acbe334ac3 = $(`<div id="html_d0e7fcef8a958325a3fe48acbe334ac3" style="width: 100.0%; height: 100.0%;">Overnight Stay (Thursday): Railway Bell</div>`)[0];
+            popup_e9d9226c6b71ea7341934b30f1f55be0.setContent(html_d0e7fcef8a958325a3fe48acbe334ac3);
+        
+
+        marker_81f4fc32e69e980b00c4cab8239ec365.bindPopup(popup_e9d9226c6b71ea7341934b30f1f55be0)
+        ;
+
+        
+    
+    
+            var marker_0deb6a6c8929fdb60763570c4f72ce01 = L.marker(
+                [51.7, -0.033],
+                {}
+            ).addTo(map_0f252fb7c5955499cf1efaa78eff0e5c);
+        
+    
+            var icon_4419c7abc237a373bf98da855141dfe5 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_0deb6a6c8929fdb60763570c4f72ce01.setIcon(icon_4419c7abc237a373bf98da855141dfe5);
+        
+    
+        var popup_4447c2677f354c0a929d9edfcf131112 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_4a7aae914732065087c5a8c524f04b38 = $(`<div id="html_4a7aae914732065087c5a8c524f04b38" style="width: 100.0%; height: 100.0%;">Friday - Stop 1: Moon and Cross</div>`)[0];
+            popup_4447c2677f354c0a929d9edfcf131112.setContent(html_4a7aae914732065087c5a8c524f04b38);
+        
+
+        marker_0deb6a6c8929fdb60763570c4f72ce01.bindPopup(popup_4447c2677f354c0a929d9edfcf131112)
+        ;
+
+        
+    
+    
+            var marker_57cbf4250015f8185ce5fba6b882184b = L.marker(
+                [51.591, 0.091],
+                {}
+            ).addTo(map_0f252fb7c5955499cf1efaa78eff0e5c);
+        
+    
+            var icon_e663da250e8227682b86545e04867cb6 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_57cbf4250015f8185ce5fba6b882184b.setIcon(icon_e663da250e8227682b86545e04867cb6);
+        
+    
+        var popup_2e3577ae7dabc55d83e7e65748385234 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_d0f9413980b260d9e2e98b77a004f275 = $(`<div id="html_d0f9413980b260d9e2e98b77a004f275" style="width: 100.0%; height: 100.0%;">Friday - Stop 2: New Fairlop Oak</div>`)[0];
+            popup_2e3577ae7dabc55d83e7e65748385234.setContent(html_d0f9413980b260d9e2e98b77a004f275);
+        
+
+        marker_57cbf4250015f8185ce5fba6b882184b.bindPopup(popup_2e3577ae7dabc55d83e7e65748385234)
+        ;
+
+        
+    
+    
+            var marker_733354f7dfc1a6e018b7ce9e5d9dcc05 = L.marker(
+                [51.514, -0.067],
+                {}
+            ).addTo(map_0f252fb7c5955499cf1efaa78eff0e5c);
+        
+    
+            var icon_299ea24affcf1775a5f178823abd6131 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_733354f7dfc1a6e018b7ce9e5d9dcc05.setIcon(icon_299ea24affcf1775a5f178823abd6131);
+        
+    
+        var popup_4f41d2b42b21180100ebb25167d03d54 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_0728afe3a4c7e99b880764ad311eb7da = $(`<div id="html_0728afe3a4c7e99b880764ad311eb7da" style="width: 100.0%; height: 100.0%;">Friday - Stop 3: Goodmans Field</div>`)[0];
+            popup_4f41d2b42b21180100ebb25167d03d54.setContent(html_0728afe3a4c7e99b880764ad311eb7da);
+        
+
+        marker_733354f7dfc1a6e018b7ce9e5d9dcc05.bindPopup(popup_4f41d2b42b21180100ebb25167d03d54)
+        ;
+
+        
+    
+    
+            var poly_line_a6d9410677234ec6aa51ef57d84956c8 = L.polyline(
+                [[51.445, -0.408], [51.59, -0.253]],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(map_0f252fb7c5955499cf1efaa78eff0e5c);
+        
+    
+            var poly_line_cccda80ae62532bd7001bd7513d561be = L.polyline(
+                [[51.59, -0.253], [51.646, -0.146]],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(map_0f252fb7c5955499cf1efaa78eff0e5c);
+        
+    
+            var poly_line_f089e2285cc2a8e1b05b8c55eda861f3 = L.polyline(
+                [[51.646, -0.146], [51.7, -0.033]],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "purple", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(map_0f252fb7c5955499cf1efaa78eff0e5c);
+        
+    
+            var poly_line_cd20c6d3327a23486aa952f76ce1d13d = L.polyline(
+                [[51.7, -0.033], [51.591, 0.091]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(map_0f252fb7c5955499cf1efaa78eff0e5c);
+        
+    
+            var poly_line_9794fb1edbe4de6f9f5881a2e34c232a = L.polyline(
+                [[51.591, 0.091], [51.514, -0.067]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 2.5}
+            ).addTo(map_0f252fb7c5955499cf1efaa78eff0e5c);
+        
+</script>
+</html>
