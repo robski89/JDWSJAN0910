@@ -1,193 +1,67 @@
+
 <!DOCTYPE html>
 <html>
 <head>
-    
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-    
-        <script>
-            L_NO_TOUCH = false;
-            L_DISABLE_3D = false;
-        </script>
-    
-    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
-    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
-    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
-    
-            <meta name="viewport" content="width=device-width,
-                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-            <style>
-                #map_3fcf13129b3ae95f8f9aa3779d879752 {
-                    position: relative;
-                    width: 100.0%;
-                    height: 100.0%;
-                    left: 0.0%;
-                    top: 0.0%;
-                }
-            </style>
-        
+    <title>Sciensus Real Locations Map</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <style>
+        #map { height: 100vh; width: 100%; margin: 0; padding: 0; }
+        .numbered-icon {
+            background-color: white;
+            border-radius: 50%;
+            border: 2px solid black;
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-    
-    
-            <div class="folium-map" id="map_3fcf13129b3ae95f8f9aa3779d879752" ></div>
-        
-</body>
+<div id="map"></div>
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 <script>
-    
-    
-            var map_3fcf13129b3ae95f8f9aa3779d879752 = L.map(
-                "map_3fcf13129b3ae95f8f9aa3779d879752",
-                {
-                    center: [51.51728000000001, -0.08327999999999999],
-                    crs: L.CRS.EPSG3857,
-                    zoom: 12,
-                    zoomControl: true,
-                    preferCanvas: false,
-                }
-            );
+    var map = L.map('map').setView([54.5, -3], 6);
 
-            
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors'
+    }).addTo(map);
 
-        
-    
-            var tile_layer_238044c5f4ca3280644d2517a0862afc = L.tileLayer(
-                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
-            ).addTo(map_3fcf13129b3ae95f8f9aa3779d879752);
-        
-    
-            var marker_71ef3817115e335a09593652f8f007d5 = L.marker(
-                [51.5321, -0.1436],
-                {}
-            ).addTo(map_3fcf13129b3ae95f8f9aa3779d879752);
-        
-    
-            var icon_f4dad20868045e350d816b1e8d28b86f = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
-            );
-            marker_71ef3817115e335a09593652f8f007d5.setIcon(icon_f4dad20868045e350d816b1e8d28b86f);
-        
-    
-        var popup_8b464bb08baab2c6122531fbc09ead28 = L.popup({"maxWidth": "100%"});
+    function createMarker(lat, lon, number, title, address, info, color) {
+        var icon = L.divIcon({
+            className: 'numbered-icon',
+            html: '<div style="background:' + color + '; border-radius:50%; width:30px; height:30px; display:flex; align-items:center; justify-content:center;">' + number + '</div>',
+            iconSize: [30, 30]
+        });
+        var marker = L.marker([lat, lon], {icon: icon}).addTo(map);
+        marker.bindPopup("<b>Name:</b> " + title + "<br/><b>Address:</b> " + address + "<br/>" + info);
+    }
 
-        
-            var html_2b94bb8eaac74e4e264a44f46c57d895 = $(`<div id="html_2b94bb8eaac74e4e264a44f46c57d895" style="width: 100.0%; height: 100.0%;">Metropolitan</div>`)[0];
-            popup_8b464bb08baab2c6122531fbc09ead28.setContent(html_2b94bb8eaac74e4e264a44f46c57d895);
-        
+    // Red markers
+    createMarker(57.1497, -2.0943, 1, "Aberdeen Site", "123 Great Northern Road, Aberdeen AB24 2BR", "3 x ops x 1 working day", "red");
+    createMarker(55.8642, -4.2518, 2, "Glasgow Site", "45 Gordon Street, Glasgow G1 3PE", "3 x ops x 1 working day", "red");
+    createMarker(54.8925, -2.9329, 3, "Carlisle Site", "20 English Street, Carlisle CA3 8HZ", "3 x ops x 1 working day", "red");
 
-        marker_71ef3817115e335a09593652f8f007d5.bindPopup(popup_8b464bb08baab2c6122531fbc09ead28)
-        ;
+    // Blue markers
+    createMarker(51.4545, -2.5879, 4, "Bristol Site", "12 Park Street, Bristol BS1 5HR", "2 x ops x 1 working day", "blue");
+    createMarker(52.4862, -1.8904, 5, "Birmingham Site", "5 New Street, Birmingham B2 4QA", "2 x ops x 1 working day", "blue");
+    createMarker(53.4808, -2.2426, 6, "Manchester Site", "9 Deansgate, Manchester M3 1AZ", "2 x ops x 1 working day", "blue");
+    createMarker(53.8008, -1.5491, 7, "Leeds Site", "2 Briggate, Leeds LS1 6ER", "2 x ops x 1 working day", "blue");
+    createMarker(53.4084, -2.9916, 8, "Liverpool Site", "18 Bold Street, Liverpool L1 4DS", "2 x ops x 1 working day", "blue");
+    createMarker(51.7520, -1.2577, 9, "Oxford Site", "10 Cornmarket Street, Oxford OX1 3HB", "2 x ops x 1 working day", "blue");
+    createMarker(51.4545, -0.9781, 10, "Reading Site", "15 Broad Street, Reading RG1 2BH", "2 x ops x 1 working day", "blue");
+    createMarker(51.4816, -3.1791, 11, "Cardiff Site", "25 Queen Street, Cardiff CF10 2AL", "2 x ops x 1 working day", "blue");
+    createMarker(52.4068, -1.5197, 12, "Coventry Site", "33 High Street, Coventry CV1 5RE", "2 x ops x 1 working day", "blue");
+    createMarker(52.2053, 0.1218, 13, "Cambridge Site", "7 Sidney Street, Cambridge CB2 3HG", "2 x ops x 1 working day", "blue");
+    createMarker(51.8819, -0.4176, 14, "Luton Site", "3 George Street, Luton LU1 2AA", "2 x ops x 1 working day", "blue");
+    createMarker(51.4060, -0.3470, 15, "Kingston Site", "8 Market Place, Kingston KT1 1JP", "2 x ops x 1 working day", "blue");
+    createMarker(51.3397, 0.7276, 16, "Maidstone Site", "6 Fremlin Walk, Maidstone ME14 1PS", "2 x ops x 1 working day", "blue");
+    createMarker(50.8225, -0.1372, 17, "Brighton Site", "11 North Street, Brighton BN1 1EB", "2 x ops x 1 working day", "blue");
+    createMarker(51.2798, 1.0837, 18, "Canterbury Site", "4 St George's Street, Canterbury CT1 2SR", "2 x ops x 1 working day", "blue");
 
-        
-    
-    
-            var marker_ab1ced968639a5c10c3445accd0e9ea6 = L.marker(
-                [51.5212, -0.1018],
-                {}
-            ).addTo(map_3fcf13129b3ae95f8f9aa3779d879752);
-        
-    
-            var icon_248043ff5cb5e766ec5f469e68651ebd = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
-            );
-            marker_ab1ced968639a5c10c3445accd0e9ea6.setIcon(icon_248043ff5cb5e766ec5f469e68651ebd);
-        
-    
-        var popup_59677be39c3013fc9ceefa07a1f6192d = L.popup({"maxWidth": "100%"});
-
-        
-            var html_16e7d9ad07648c53fab250af9dbdb005 = $(`<div id="html_16e7d9ad07648c53fab250af9dbdb005" style="width: 100.0%; height: 100.0%;">Sir John Oldcastle</div>`)[0];
-            popup_59677be39c3013fc9ceefa07a1f6192d.setContent(html_16e7d9ad07648c53fab250af9dbdb005);
-        
-
-        marker_ab1ced968639a5c10c3445accd0e9ea6.bindPopup(popup_59677be39c3013fc9ceefa07a1f6192d)
-        ;
-
-        
-    
-    
-            var marker_72bf500e5fd3f935229dad9998d1acd8 = L.marker(
-                [51.5106, -0.0778],
-                {}
-            ).addTo(map_3fcf13129b3ae95f8f9aa3779d879752);
-        
-    
-            var icon_a02f52cb62d7e041c5b55b382812bc77 = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
-            );
-            marker_72bf500e5fd3f935229dad9998d1acd8.setIcon(icon_a02f52cb62d7e041c5b55b382812bc77);
-        
-    
-        var popup_32f79cc73f819fc1804491334cc6e6c1 = L.popup({"maxWidth": "100%"});
-
-        
-            var html_af8ab566c11a97b3cd11e8907a145398 = $(`<div id="html_af8ab566c11a97b3cd11e8907a145398" style="width: 100.0%; height: 100.0%;">Liberty Bounds</div>`)[0];
-            popup_32f79cc73f819fc1804491334cc6e6c1.setContent(html_af8ab566c11a97b3cd11e8907a145398);
-        
-
-        marker_72bf500e5fd3f935229dad9998d1acd8.bindPopup(popup_32f79cc73f819fc1804491334cc6e6c1)
-        ;
-
-        
-    
-    
-            var marker_575b31f91e1354b5204355a064f7d5c3 = L.marker(
-                [51.5079, -0.0228],
-                {}
-            ).addTo(map_3fcf13129b3ae95f8f9aa3779d879752);
-        
-    
-            var icon_5be611914252be9f0c315fe66f3851da = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
-            );
-            marker_575b31f91e1354b5204355a064f7d5c3.setIcon(icon_5be611914252be9f0c315fe66f3851da);
-        
-    
-        var popup_b25da5decbcb5d59076b4bc381530fec = L.popup({"maxWidth": "100%"});
-
-        
-            var html_36191d77fc7278292a8b27c6774c5aa8 = $(`<div id="html_36191d77fc7278292a8b27c6774c5aa8" style="width: 100.0%; height: 100.0%;">Ledger Building</div>`)[0];
-            popup_b25da5decbcb5d59076b4bc381530fec.setContent(html_36191d77fc7278292a8b27c6774c5aa8);
-        
-
-        marker_575b31f91e1354b5204355a064f7d5c3.bindPopup(popup_b25da5decbcb5d59076b4bc381530fec)
-        ;
-
-        
-    
-    
-            var marker_01282c3a6847a989204e6c69b2889340 = L.marker(
-                [51.5146, -0.0704],
-                {}
-            ).addTo(map_3fcf13129b3ae95f8f9aa3779d879752);
-        
-    
-            var icon_3b43a5688cd97d156d0d70fa8abab74c = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
-            );
-            marker_01282c3a6847a989204e6c69b2889340.setIcon(icon_3b43a5688cd97d156d0d70fa8abab74c);
-        
-    
-        var popup_c0fe1c80e25296d2c63635c37760e0cb = L.popup({"maxWidth": "100%"});
-
-        
-            var html_17fa806d3ac087a73bdd3d32c833d550 = $(`<div id="html_17fa806d3ac087a73bdd3d32c833d550" style="width: 100.0%; height: 100.0%;">Goodmans Field</div>`)[0];
-            popup_c0fe1c80e25296d2c63635c37760e0cb.setContent(html_17fa806d3ac087a73bdd3d32c833d550);
-        
-
-        marker_01282c3a6847a989204e6c69b2889340.bindPopup(popup_c0fe1c80e25296d2c63635c37760e0cb)
-        ;
-
-        
-    
 </script>
+</body>
 </html>
